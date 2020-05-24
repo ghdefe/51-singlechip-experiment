@@ -1,0 +1,82 @@
+A51 MACRO ASSEMBLER  ZHONGDUANCHAXUN                                                      05/24/2020 16:11:59 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN zhongDuanChaXun.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE zhongDuanChaXun.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000 011D              2     AJMP MAIN
+                       3     
+001B                   4     ORG 001BH
+001B 0134              5     AJMP IR_T1
+                       6     
+001D                   7     MAIN:
+001D 7590FF            8             MOV P1,#0FFH
+0020 1124              9             ACALL INIT_T1
+0022 80FE             10     WAIT:   JMP WAIT
+                      11     
+0024                  12     INIT_T1:
+0024 758950           13             MOV TMOD,#50H
+0027 758DFF           14             MOV TH1,#0FFH
+002A 758BFB           15             MOV TL1,#0FBH
+                      16     
+002D D2AF             17             SETB EA
+002F D2AB             18             SETB ET1
+0031 D28E             19             SETB TR1
+0033 22               20             RET
+                      21     
+0034                  22     IR_T1:
+0034 759000           23                     MOV P1,#00H
+                      24     
+                      25     
+                      26     
+                      27     
+                      28     
+                      29     
+                      30     ;延时防抖，通过判断P3.5电平来灭灯
+0037                  31     LOOP:
+0037 30B5FD           32                     JNB P3.5,$
+003A 7E4B             33                     MOV R6,#75
+003C                  34     DELAY:
+003C 7F64             35                     MOV R7,#100
+003E DFFE             36                     DJNZ R7,$
+0040 DEFA             37                     DJNZ R6,DELAY
+0042 20B5F2           38                     JB P3.5,LOOP
+                      39     
+                      40     
+0045 7590FF           41                     MOV P1,#0FFH
+0048 1124             42                     ACALL INIT_T1
+004A 32               43                     RETI
+                      44     END
+                             
+A51 MACRO ASSEMBLER  ZHONGDUANCHAXUN                                                      05/24/2020 16:11:59 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   003CH   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+INIT_T1. . . . . .  C ADDR   0024H   A   
+IR_T1. . . . . . .  C ADDR   0034H   A   
+LOOP . . . . . . .  C ADDR   0037H   A   
+MAIN . . . . . . .  C ADDR   001DH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+WAIT . . . . . . .  C ADDR   0022H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

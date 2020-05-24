@@ -1,0 +1,77 @@
+A51 MACRO ASSEMBLER  ANJIANJISHU                                                          05/24/2020 16:14:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN anJianJiShu.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE anJianJiShu.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000                   2     START:
+0000 90002C            3                     MOV DPTR,#TABLE
+0003 7800              4                     MOV R0,#00H
+0005 7580C0            5                     MOV P0,#0C0H
+0008 75A0F7            6                     MOV P2,#0F7H
+                       7     
+                       8     
+                       9     
+000B                  10     S1:
+000B 08               11                     INC R0
+000C B80A02           12                     CJNE R0,#10,S2
+000F 7800             13                     MOV R0,#00H
+                      14     
+0011                  15     S2:
+0011 20B2FD           16                     JB P3.2,$
+0014 120023           17                     LCALL DELAY
+0017 20B2F7           18                     JB P3.2,S2
+                      19     
+001A                  20     S3:
+001A E8               21                     MOV A,R0
+001B 93               22                     MOVC A,@A+DPTR
+001C F580             23                     MOV P0,A
+                      24     
+001E                  25     S4:
+001E 20B2EA           26                     JB P3.2,S1
+0021 80FB             27                     JMP S4
+                      28     
+                      29     
+0023                  30     DELAY:
+0023 7DC8             31                     MOV R5,#200
+0025                  32     D1:
+0025 7EFA             33                     MOV R6,#250
+0027 DEFE             34                     DJNZ R6,$
+0029 DDFA             35                     DJNZ R5,D1
+002B 22               36                     RET
+                      37     
+002C                  38     TABLE:
+002C C0F9A4B0         39                     DB      0C0H,0F9H,0A4H,0B0H,099H,092H,082H,0F8H,080H,090H
+0030 999282F8                
+0034 8090                    
+                      40     
+                      41     END                     
+A51 MACRO ASSEMBLER  ANJIANJISHU                                                          05/24/2020 16:14:02 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+D1 . . . . . . . .  C ADDR   0025H   A   
+DELAY. . . . . . .  C ADDR   0023H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+S1 . . . . . . . .  C ADDR   000BH   A   
+S2 . . . . . . . .  C ADDR   0011H   A   
+S3 . . . . . . . .  C ADDR   001AH   A   
+S4 . . . . . . . .  C ADDR   001EH   A   
+START. . . . . . .  C ADDR   0000H   A   
+TABLE. . . . . . .  C ADDR   002CH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

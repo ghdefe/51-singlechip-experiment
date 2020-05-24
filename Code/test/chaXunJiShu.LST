@@ -1,0 +1,51 @@
+A51 MACRO ASSEMBLER  CHAXUNJISHU                                                          05/24/2020 16:08:15 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN chaXunJiShu.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE chaXunJiShu.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000 D290              2     SETB P1.0
+                       3     
+0002                   4     START:
+0002 758950            5             MOV TMOD,#50H
+0005 758DFF            6             MOV TH1,#0FFH
+0008 758BFB            7             MOV TL1,#0FBH
+000B D28E              8             SETB TR1
+                       9     
+000D                  10     WAIT:
+000D 308FFD           11             JNB TF1,WAIT
+0010 C28F             12             CLR TF1
+0012 C290             13             CLR P1.0
+0014                  14     LOOP:
+0014 E58B             15             MOV A,TL1
+0016 B401FB           16             CJNE A,#01H,LOOP
+0019 D290             17             SETB P1.0
+001B 80E5             18             JMP START
+                      19     END
+A51 MACRO ASSEMBLER  CHAXUNJISHU                                                          05/24/2020 16:08:15 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0014H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0002H   A   
+TF1. . . . . . . .  B ADDR   0088H.7 A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+WAIT . . . . . . .  C ADDR   000DH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,46 @@
+A51 MACRO ASSEMBLER  PAOMADENG                                                            05/24/2020 16:04:00 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN paomadeng.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE paomadeng.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000                   2     MAIN:
+0000 74FE              3                     MOV A,#0FEH             ; 1111_1110B,即0位亮灯
+0002                   4     LOOP:   
+0002 F590              5                     MOV P1,A                        ; 将控制信号输出到P1口
+0004 12000A            6     LCALL DELAY                             ; 延时一段时间
+0007 23                7     RL A                                            ; 控制字符左移一位，即下一个灯亮
+0008 0102              8     AJMP LOOP                               ; 循环
+000A                   9     DELAY:
+000A 7B14             10                     MOV R3,#20
+000C 7C32             11     D1: MOV R4,#50
+000E 7DFA             12     D2: MOV R5,#250
+0010 DDFE             13     DJNZ R5,$
+0012 DCFA             14     DJNZ R4,D2
+0014 DBF6             15     DJNZ R3,D1
+0016 22               16     RET
+                      17     END
+A51 MACRO ASSEMBLER  PAOMADENG                                                            05/24/2020 16:04:00 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+D1 . . . . . . . .  C ADDR   000CH   A   
+D2 . . . . . . . .  C ADDR   000EH   A   
+DELAY. . . . . . .  C ADDR   000AH   A   
+LOOP . . . . . . .  C ADDR   0002H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

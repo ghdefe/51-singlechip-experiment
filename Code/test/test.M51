@@ -1,0 +1,161 @@
+BL51 BANKED LINKER/LOCATER V5.00                                                        05/24/2020  18:03:09  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.00, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE daZuoYe.obj TO test
+
+
+INPUT MODULES INCLUDED:
+  daZuoYe.obj (DAZUOYE)
+
+
+LINK MAP OF MODULE:  test (DAZUOYE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     00EDH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  test (DAZUOYE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DAZUOYE
+  C:00A9H         SYMBOL        AAA
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  C:00C2H         SYMBOL        DELAY
+  C:00D0H         SYMBOL        DELAY60
+  C:00C4H         SYMBOL        DELAYLOOP1
+  C:00C6H         SYMBOL        DELAYLOOP2
+  C:00C8H         SYMBOL        DELAYLOOP3
+  C:004AH         SYMBOL        DISPLAY
+  C:00D4H         SYMBOL        DL0
+  C:00D2H         SYMBOL        DL1
+  B:00A8H.7       SYMBOL        EA
+  B:00A8H.0       SYMBOL        EX0
+  C:0070H         SYMBOL        IR0
+  B:0088H.0       SYMBOL        IT0
+  C:00C1H         SYMBOL        JIESHU
+  C:0080H         SYMBOL        KEY
+  C:0091H         SYMBOL        L1
+  C:0040H         SYMBOL        MAIN
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  D:00B0H         SYMBOL        P3
+  D:00D0H         SYMBOL        PSW
+  C:0055H         SYMBOL        S1
+  C:009AH         SYMBOL        SAO1
+  C:0093H         SYMBOL        SAO2
+  C:00DDH         SYMBOL        TABLE
+  C:0000H         LINE#         3
+  C:0003H         LINE#         6
+BL51 BANKED LINKER/LOCATER V5.00                                                      05/24/2020  18:03:09  PAGE 2
+
+
+  C:0040H         LINE#         11
+  C:0042H         LINE#         12
+  C:0044H         LINE#         13
+  C:0046H         LINE#         17
+  C:0048H         LINE#         18
+  C:004AH         LINE#         34
+  C:004DH         LINE#         40
+  C:004FH         LINE#         41
+  C:0050H         LINE#         42
+  C:0051H         LINE#         44
+  C:0053H         LINE#         45
+  C:0055H         LINE#         50
+  C:0056H         LINE#         51
+  C:0057H         LINE#         52
+  C:0059H         LINE#         53
+  C:005AH         LINE#         54
+  C:005BH         LINE#         55
+  C:005CH         LINE#         57
+  C:005FH         LINE#         58
+  C:0060H         LINE#         61
+  C:0063H         LINE#         62
+  C:0065H         LINE#         63
+  C:0067H         LINE#         64
+  C:0068H         LINE#         65
+  C:0069H         LINE#         66
+  C:006AH         LINE#         68
+  C:006CH         LINE#         70
+  C:006EH         LINE#         71
+  C:0070H         LINE#         76
+  C:0072H         LINE#         77
+  C:0074H         LINE#         78
+  C:0076H         LINE#         79
+  C:0078H         LINE#         80
+  C:007AH         LINE#         81
+  C:007CH         LINE#         84
+  C:007EH         LINE#         85
+  C:0080H         LINE#         88
+  C:0082H         LINE#         89
+  C:0084H         LINE#         90
+  C:0086H         LINE#         91
+  C:0089H         LINE#         92
+  C:008AH         LINE#         93
+  C:008BH         LINE#         94
+  C:008CH         LINE#         95
+  C:008DH         LINE#         96
+  C:0090H         LINE#         97
+  C:0091H         LINE#         100
+  C:0093H         LINE#         102
+  C:0096H         LINE#         103
+  C:0097H         LINE#         104
+  C:0098H         LINE#         105
+  C:009AH         LINE#         108
+  C:009BH         LINE#         109
+  C:009EH         LINE#         110
+  C:009FH         LINE#         111
+  C:00A0H         LINE#         112
+  C:00A1H         LINE#         132
+BL51 BANKED LINKER/LOCATER V5.00                                                      05/24/2020  18:03:09  PAGE 3
+
+
+  C:00A3H         LINE#         133
+  C:00A4H         LINE#         135
+  C:00A7H         LINE#         136
+  C:00A9H         LINE#         138
+  C:00AAH         LINE#         139
+  C:00ABH         LINE#         142
+  C:00ADH         LINE#         143
+  C:00AEH         LINE#         144
+  C:00AFH         LINE#         145
+  C:00B0H         LINE#         148
+  C:00B2H         LINE#         149
+  C:00B4H         LINE#         150
+  C:00B6H         LINE#         151
+  C:00B8H         LINE#         152
+  C:00BAH         LINE#         154
+  C:00BDH         LINE#         155
+  C:00BFH         LINE#         156
+  C:00C1H         LINE#         160
+  C:00C2H         LINE#         171
+  C:00C4H         LINE#         173
+  C:00C6H         LINE#         175
+  C:00C8H         LINE#         177
+  C:00C9H         LINE#         178
+  C:00CBH         LINE#         179
+  C:00CDH         LINE#         180
+  C:00CFH         LINE#         181
+  C:00D0H         LINE#         184
+  C:00D2H         LINE#         186
+  C:00D4H         LINE#         188
+  C:00D6H         LINE#         189
+  C:00D8H         LINE#         190
+  C:00DAH         LINE#         191
+  C:00DCH         LINE#         192
+  -------         ENDMOD        DAZUOYE
+
+Program Size: data=8.0 xdata=0 code=237
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

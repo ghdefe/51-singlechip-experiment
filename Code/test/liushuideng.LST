@@ -1,0 +1,89 @@
+A51 MACRO ASSEMBLER  LIUSHUIDENG                                                          05/22/2020 18:54:38 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN liushuideng.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE liushuideng.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     START:
+0000 C290              2     CLR           P1.0
+0002 115E              3     ACALL         DELAY
+0004 D290              4     SETB          P1.0
+0006 C291              5     CLR           P1.1
+0008 115E              6     ACALL         DELAY
+000A D291              7     SETB          P1.1
+000C C292              8     CLR           P1.2
+000E 115E              9     ACALL         DELAY
+0010 D292             10     SETB          P1.2
+0012 C293             11     CLR           P1.3
+0014 115E             12     ACALL         DELAY
+0016 D293             13     SETB          P1.3
+0018 C294             14     CLR           P1.4
+001A 115E             15     ACALL         DELAY
+001C D294             16     SETB          P1.4
+001E C295             17     CLR           P1.5
+0020 115E             18     ACALL         DELAY
+0022 D295             19     SETB          P1.5
+0024 C296             20     CLR           P1.6
+0026 115E             21     ACALL         DELAY
+0028 D296             22     SETB          P1.6
+002A C297             23     CLR           P1.7
+002C 115E             24     ACALL         DELAY
+002E D297             25     SETB          P1.7
+0030 C296             26     CLR           P1.6
+0032 115E             27     ACALL         DELAY
+0034 D296             28     SETB          P1.6
+0036 C295             29     CLR           P1.5
+0038 115E             30     ACALL         DELAY
+003A D295             31     SETB          P1.5
+003C C294             32     CLR           P1.4
+003E 115E             33     ACALL         DELAY
+0040 D294             34     SETB          P1.4
+0042 C293             35     CLR           P1.3
+0044 115E             36     ACALL         DELAY
+0046 D293             37     SETB          P1.3
+0048 C292             38     CLR           P1.2
+004A 115E             39     ACALL         DELAY
+004C D292             40     SETB          P1.2
+004E C291             41     CLR           P1.1
+0050 115E             42     ACALL         DELAY
+0052 D291             43     SETB          P1.1
+0054 C290             44     CLR           P1.0
+0056 115E             45     ACALL         DELAY
+0058 D290             46     SETB          P1.0
+005A 115E             47     ACALL         DELAY
+005C 0100             48     AJMP          START
+005E                  49     DELAY:
+005E 7D0A             50     MOV           R5,#10
+0060                  51     LOOP1:
+0060 7EC8             52     MOV           R6,#200
+0062                  53     LOOP2:
+0062 7FFA             54     MOV           R7,#250
+0064 DFFE             55     DJNZ          R7,$
+0066 DEFA             56     DJNZ          R6,LOOP2
+0068 DDF6             57     DJNZ          R5,LOOP1
+006A 22               58     RET
+A51 MACRO ASSEMBLER  LIUSHUIDENG                                                          05/22/2020 18:54:38 PAGE     2
+
+                      59     END
+A51 MACRO ASSEMBLER  LIUSHUIDENG                                                          05/22/2020 18:54:38 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   005EH   A   
+LOOP1. . . . . . .  C ADDR   0060H   A   
+LOOP2. . . . . . .  C ADDR   0062H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

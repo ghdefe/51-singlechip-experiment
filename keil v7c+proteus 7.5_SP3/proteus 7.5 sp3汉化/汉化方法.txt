@@ -1,0 +1,1 @@
+将两个汉化文件放到安装文件夹目录：D:\Program Files\Labcenter Electronics\Proteus 7 Professional\BIN下，具体安装路径看阁下的喜好。

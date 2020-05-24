@@ -1,0 +1,57 @@
+A51 MACRO ASSEMBLER  TEST                                                                 05/23/2020 16:04:14 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN test.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE test.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000 020030            2     LJMP MAIN
+                       3     
+0003                   4     ORG 0003H
+0003 C297              5     EX0ISR: CLR P1.7
+0005 32                6                             RETI
+0013                   7     ORG 0013H
+0013 D297              8     EX1ISR: SETB P1.7
+0015 32                9                             RETI
+                      10     
+0030                  11     ORG 30H
+0030                  12     MAIN:
+0030 D2AF             13                     SETB EA
+0032 D2A8             14                     SETB EX0
+0034 D288             15                     SETB IT0
+0036 D2AA             16                     SETB EX1
+0038 D28A             17                     SETB IT1
+                      18     
+                      19     
+                      20     
+003A 80FE             21     SKIP:   SJMP $
+                      22                     END
+                             
+                             
+A51 MACRO ASSEMBLER  TEST                                                                 05/23/2020 16:04:14 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+EX0ISR . . . . . .  C ADDR   0003H   A   
+EX1. . . . . . . .  B ADDR   00A8H.2 A   
+EX1ISR . . . . . .  C ADDR   0013H   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . .  B ADDR   0088H.2 A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+SKIP . . . . . . .  C ADDR   003AH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

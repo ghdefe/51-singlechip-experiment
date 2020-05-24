@@ -1,0 +1,47 @@
+C51 COMPILER V7.00  1                                                                      05/22/2020 17:25:08 PAGE 1   
+
+
+C51 COMPILER V7.00, COMPILATION OF MODULE 1
+OBJECT MODULE PLACED IN 1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 1.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #define LEDS 6
+   2          #include <reg51.h>
+   3          //ledµÆÑ¡Í¨ÐÅºÅ
+   4          void delay(void)
+   5          {
+   6   1              unsigned int i;
+   7   1              for(i=0;i<25000;i++);
+   8   1      }
+   9          
+  10          void main(void)
+  11          {
+  12   1                      int i;
+  13   1                      while(i)
+  14   1                      {
+  15   2                                      P1 = 0xfe;
+  16   2                                      delay();
+  17   2                                      for(i=0;i<8;i++)
+  18   2                                      {
+  19   3                                                      P1 = (P1<<1) | 0X01;
+  20   3                                                      if(P1 == 0XFF) P1 = 0XFE;
+  21   3                                                      delay();
+  22   3                                      }
+  23   2                      }
+  24   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     66    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

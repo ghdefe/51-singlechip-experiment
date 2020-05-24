@@ -1,0 +1,265 @@
+A51 MACRO ASSEMBLER  DAZUOYE                                                              05/24/2020 18:03:09 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN daZuoYe.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE daZuoYe.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+                       2     ;Ö÷³ÌÐò
+0000 0140              3     AJMP MAIN
+                       4     
+0003                   5     ORG 0003H
+0003 0170              6     AJMP IR0
+                       7     
+0040                   8     ORG 0040H
+0040                   9     MAIN:
+                      10                     ;ÖÐ¶Ï³õÊ¼»¯
+0040 D2AF             11                     SETB EA
+0042 D2A8             12                     SETB EX0
+0044 D288             13                     SETB IT0
+                      14     
+                      15     
+                      16     
+0046 7820             17                     MOV R0,#20H             ;ÏÔÊ¾¼¸Î»Êý·ÅÔÚ#20µÚÒ»Î»£¬ºó¼¸Î»ÊÇÃ¿Ò»Î»ÒªÏÔÊ¾µÄÊý×
+                             Ö
+0048 7600             18                     MOV @R0,#00H
+                      19     
+                      20     ;²âÊÔ
+                      21     
+                      22     
+                      23     
+                      24     
+                      25     
+                      26     
+                      27     
+                      28     
+                      29     
+                      30     ;Ñ­»·È¡Âë²¢ÏÔÊ¾
+                      31             
+004A                  32     DISPLAY:
+                      33                     ;¼üÅÌÉ¨Ãè
+004A 758000           34                     MOV P0,#00H
+                      35                     
+                      36     
+                      37     
+                      38     
+                      39     
+004D 7820             40                     MOV R0,#20H
+004F E6               41                     MOV A,@R0
+0050 F8               42                     MOV R0,A
+                      43     
+0051 60F7             44                     JZ DISPLAY
+0053 7B20             45                     MOV R3,#020H
+                      46                     
+                      47                     ;¶¯Ì¬É¨Ãè
+0055                  48                     S1:
+                      49                                     
+0055 E8               50                                     MOV A,R0
+0056 F9               51                                     MOV R1,A
+0057 7420             52                                     MOV A,#20H
+0059 29               53                                     ADD A,R1
+005A F9               54                                     MOV R1,A
+005B E7               55                                     MOV A,@R1               ;È¡´ýÏÔÊ¾Êý
+                      56                                     
+005C 9000DD           57                                     MOV DPTR,#TABLE
+A51 MACRO ASSEMBLER  DAZUOYE                                                              05/24/2020 18:03:09 PAGE     2
+
+005F 93               58                                     MOVC A,@A+DPTR  
+                      59     
+                      60                                     ;ÏÈÃðÆÁ
+0060 758000           61                                     MOV P0,#00H
+0063 F590             62                                     MOV P1,A                ;p1¿Ú·ÅÏÔÊ¾Êý¾Ý
+0065 8B80             63                                     MOV P0,R3       ;P0·ÅÎ»Ñ¡Ôñ
+0067 EB               64                                     MOV A,R3
+0068 03               65                                     RR A
+0069 FB               66                                     MOV R3,A
+                      67     
+006A 11C2             68                                     ACALL DELAY
+                      69     
+006C D8E7             70                                     DJNZ R0,S1
+006E 80DA             71                                     JMP DISPLAY
+                      72     
+                      73     ;ÖÐ¶Ï·þÎñ³ÌÐò
+0070                  74     IR0:
+                      75                     ;ÖÐ¶Ï×Ó³ÌÐò³õÊ¼»¯
+0070 C2AF             76                     CLR EA
+0072 C0E0             77                     PUSH ACC
+0074 C0D0             78                     PUSH PSW
+0076 C000             79                     PUSH 00H;PUSH R0;
+0078 C001             80                     PUSH 01H;PUSH R1;
+007A C003             81                     PUSH 03H;PUSH R3;
+                      82                     
+                      83     
+007C 79FE             84                     MOV R1,#0FEH
+007E 7C00             85                     MOV R4,#00H     ;R4´æ·Åµ±Ç°É¨ÃèÁÐ
+                      86     
+0080                  87     KEY:    ;ÁÐÉ¨Ãè
+0080 8980             88                     MOV P0,R1
+0082 E5A0             89                     MOV A,P2
+0084 540F             90                     ANL A,#0FH
+0086 B40F08           91                     CJNE A,#0FH,L1  ;ÅÐ¶ÏÊÇ·ñÓÐ°´¼ü°´ÏÂ
+0089 0C               92                     INC R4
+008A E9               93                     MOV A,R1
+008B 23               94                     RL A
+008C F9               95                     MOV R1,A
+008D B9EFF0           96                     CJNE R1,#0EFH,KEY       ;É¨ÃèÍêÁËÂð
+0090 32               97                     RETI
+                      98     
+0091                  99     L1:     
+0091 7B00            100                     MOV R3,#00H ;R3´æ·ÅÐÐÊý¾Ý
+0093                 101     SAO2:           
+0093 30E004          102                     JNB ACC.0,SAO1
+0096 03              103                     RR A
+0097 0B              104                     INC R3
+0098 80F9            105                     JMP SAO2
+                     106     
+009A                 107     SAO1:
+009A EB              108                     MOV A,R3
+009B 75F004          109                     MOV B,#4
+009E A4              110                     MUL AB
+009F 2C              111                     ADD A,R4
+00A0 FC              112                     MOV R4,A                ;¼üÖµ·Åµ½R4
+                     113     
+                     114     
+                     115     
+                     116     
+                     117     
+                     118     
+                     119     
+                     120     
+                     121     
+                     122     
+                     123     
+A51 MACRO ASSEMBLER  DAZUOYE                                                              05/24/2020 18:03:09 PAGE     3
+
+                     124     
+                     125     
+                     126     
+                     127     
+                     128     
+                     129                                     
+                     130             
+                     131                     
+00A1 7820            132                     MOV R0,#20H
+00A3 E6              133                     MOV A,@R0
+                     134     
+00A4 B40602          135                     CJNE A,#06H,AAA         ;ÒÑ¾­ÓÐ6Î»Êý¾ÝÁË£¬¾ÍÇåÁãËüÖØÐÂÀ´
+00A7 7400            136                     MOV A,#00H
+00A9                 137     AAA:
+00A9 04              138                     INC A
+00AA F6              139                     MOV @R0,A               ;Êý¾Ý·Åµ½R0ÔÝ´æ
+                     140                     
+                     141                     
+00AB 2420            142                     ADD A,#20H
+00AD F8              143                     MOV R0,A
+00AE EC              144                     MOV A,R4
+00AF F6              145                     MOV @R0,A               ;´æ´ýÏÔÊ¾Êý
+                     146     
+                     147     
+00B0 D003            148                     POP 03H;POP R3;
+00B2 D001            149                     POP 01H;POP R1;
+00B4 D000            150                     POP 00H;POP R0;
+00B6 D0D0            151                     POP PSW
+00B8 D0E0            152                     POP ACC
+                     153                     ;Ïû¶¶
+00BA 30B2FD          154                     JNB P3.2,$
+00BD 11D0            155                     ACALL DELAY60
+00BF D2AF            156                     SETB EA
+                     157     
+                     158     
+                     159     
+00C1 32              160     JIESHU: RETI
+                     161                     
+                     162     
+                     163     
+                     164     
+                     165     
+                     166     
+                     167             
+                     168                     
+                     169                     
+00C2                 170     DELAY:
+00C2 7F02            171     MOV             R7, #2
+00C4                 172     DELAYLOOP1:
+00C4 7E02            173     MOV             R6, #2
+00C6                 174     DELAYLOOP2:
+00C6 7D0A            175     MOV             R5, #10
+00C8                 176     DELAYLOOP3:
+00C8 00              177     NOP
+00C9 DDFD            178     DJNZ    R5, DELAYLOOP3
+00CB DEF9            179     DJNZ    R6, DELAYLOOP2
+00CD DFF5            180     DJNZ    R7, DELAYLOOP1
+00CF 22              181     RET
+                     182             
+00D0                 183     DELAY60: ;ÑÓÊ±60msÎó²î 0us
+00D0 7F01            184     MOV R7,#01H
+00D2                 185     DL1:
+00D2 7EA8            186     MOV R6,#0A8H
+00D4                 187     DL0:
+00D4 7D18            188     MOV R5,#18H
+00D6 DDFE            189     DJNZ R5,$
+A51 MACRO ASSEMBLER  DAZUOYE                                                              05/24/2020 18:03:09 PAGE     4
+
+00D8 DEFA            190     DJNZ R6,DL0
+00DA DFF6            191     DJNZ R7,DL1
+00DC 22              192     RET
+                     193     
+                     194     
+00DD                 195     TABLE:
+00DD C0F9A4B0        196                     DB      0C0H,0F9H,0A4H,0B0H,099H,092H,082H,0F8H,080H,090H,088H,083H,0C6H,0A
+                             1H,086H,08EH
+00E1 999282F8                
+00E5 80908883                
+00E9 C6A1868E                
+                     197     
+                     198     
+                     199     
+                     200     
+                     201     
+                     202     
+                     203     END
+A51 MACRO ASSEMBLER  DAZUOYE                                                              05/24/2020 18:03:09 PAGE     5
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AAA. . . . . . . .  C ADDR   00A9H   A   
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   00C2H   A   
+DELAY60. . . . . .  C ADDR   00D0H   A   
+DELAYLOOP1 . . . .  C ADDR   00C4H   A   
+DELAYLOOP2 . . . .  C ADDR   00C6H   A   
+DELAYLOOP3 . . . .  C ADDR   00C8H   A   
+DISPLAY. . . . . .  C ADDR   004AH   A   
+DL0. . . . . . . .  C ADDR   00D4H   A   
+DL1. . . . . . . .  C ADDR   00D2H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+IR0. . . . . . . .  C ADDR   0070H   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+JIESHU . . . . . .  C ADDR   00C1H   A   
+KEY. . . . . . . .  C ADDR   0080H   A   
+L1 . . . . . . . .  C ADDR   0091H   A   
+MAIN . . . . . . .  C ADDR   0040H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+S1 . . . . . . . .  C ADDR   0055H   A   
+SAO1 . . . . . . .  C ADDR   009AH   A   
+SAO2 . . . . . . .  C ADDR   0093H   A   
+TABLE. . . . . . .  C ADDR   00DDH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
